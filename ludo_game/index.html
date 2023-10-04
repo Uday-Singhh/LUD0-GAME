@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LUDO GAME</title>
+</head>
+
+<body>
+    <div class="container">
+        <h4>ENJOY LUDO !</h4>
+
+        <div class="dice">
+            <p>YOU</p>
+            <img id="player1" src="dice1.jpeg" alt="">
+        </div>
+        <div class="dice">
+            <P>YOUR OPPONENT</P>
+            <img id="player2" src="dice1.jpeg" alt="">
+        </div>
+        <div>
+            <button onclick="play()">click</button>
+        </div>
+    </div>
+    <script>
+        play = () => {
+            const dice1 = Math.floor(Math.random() * 6) + 1;
+            const play1dice = `dice${dice1}.jpeg`;
+            document.getElementById('player1').setAttribute('src', play1dice);
+
+            const dice2 = Math.floor(Math.random() * 6) + 1;
+            const play2dice = `dice${dice2}.jpeg`;
+            document.getElementById('player2').setAttribute('src', play2dice);
+
+            if (play1dice > play2dice) {
+                document.querySelector('h4').innerHTML = "HURRAH! YOU WON 😎🙌 ";
+            }
+            else if (play1dice < play2dice) {
+                document.querySelector('h4').innerHTML = "YOUR OPPONENT WON😔 TRY AGAIN👍";
+            }
+            else {
+                document.querySelector('h4').innerHTML = "DRAW";
+            }
+        }
+    </script>
+</body>
+
+</html>
